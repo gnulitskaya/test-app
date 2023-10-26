@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, concatMap, interval, map, mapTo, of, takeWhile, tap, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, catchError, concatMap, interval, map, mapTo, of, takeUntil, takeWhile, tap, timer } from 'rxjs';
 import { HttpServiceService } from '../../services/http-service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  private _destroy$: Subject<void> = new Subject<void>();
   private readonly _countDown: number = 60;
   @ViewChild('snackbar') customSnackbar: any;
   interval$$: Observable<number> = interval(1000);
@@ -26,7 +27,10 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   onClickSend() {
-    this.getResults().subscribe();
+    this.getResults().pipe(
+      takeUntil(this._destroy$)
+    )
+    .subscribe();
   }
 
   private getResults(): Observable<any> {
@@ -53,7 +57,11 @@ export class FormComponent implements OnInit {
   }
 
   private _initCountdown(): void {
-    this._createCountDownTimer$$().subscribe();
+    this._createCountDownTimer$$()
+    .pipe(
+      takeUntil(this._destroy$)
+    )
+    .subscribe();
   }
 
   private _createCountDownTimer$$(): Observable<void> {
