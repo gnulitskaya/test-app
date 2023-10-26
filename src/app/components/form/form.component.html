@@ -1,0 +1,24 @@
+<div class="form-wrapper">
+    <h1 class="form-wrapper__title">Вход</h1>
+    <form class="form" [formGroup]="form" (ngSubmit)="onClickSend()">
+        <input formControlName="login" type="text" placeholder="Логин">
+        <button [disabled]="(isButtonDisabled || form.invalid === true)" type="submit" (click)="onClickSend()">
+            Отправить
+            <span *ngIf="isButtonDisabled" class="loader"></span>
+        </button>
+    </form>
+
+    <ng-container *ngIf="secondsLeftToSendAgain$$ | async as secondsLeftToSendAgain">
+    <div class="countdown">
+        Отправить снова после 
+        <span class="timer__item"> {{ secondsLeftToSendAgain }} </span>
+        секунд
+    </div>
+    </ng-container>
+
+    <div class="status" *ngIf="statusMessage">
+        <div>{{statusMessage}}, Вы успешно зарегестрированы!</div>
+    </div>
+</div>
+
+<app-snackbar #snackbar [data]="'ошибка'"></app-snackbar>

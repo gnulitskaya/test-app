@@ -1,0 +1,94 @@
+$color: #9E768F;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.form-wrapper {
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 400px;
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 5px solid #FFF;
+    border-bottom-color: #F88DAD;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.countdown {
+    margin: 20px 0;
+}
+
+.send-again__btn {
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    color: #6C464F;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+input {
+    margin-bottom: 20px;
+    border: 3px solid $color;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
+
+button {
+    background-color: $color;
+    border: none;
+    color: azure;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+
+.status {
+    background-color: #9FA4C4;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    color: #6C464F;
+}
