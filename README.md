@@ -1,27 +1,10 @@
 # TestApp
+  <!-- Есть поле для ввода логина и кнопка "Отправить". 
+  При нажатии на нее идет запрос на сервер, на это время кнопка будет заблокирована. 
+  При успешном логине мы выведем имя пользователя ниже, в противном случае 
+  покажем ошибку на 5 секунд. Повторная отправка логина возможно только через 1 минуту, 
+  нужно добавить таймер, ведущий отсчет перед повторной отправкой логина. -->
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+<img width="648" alt="image" src="https://github.com/gnulitskaya/test-app/assets/63544167/314a13dd-36df-41e8-8c99-b517cb8e0f0f">
+<img width="780" alt="image" src="https://github.com/gnulitskaya/test-app/assets/63544167/80d7169d-57f8-4afb-953b-7f18d6042b3f">
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
